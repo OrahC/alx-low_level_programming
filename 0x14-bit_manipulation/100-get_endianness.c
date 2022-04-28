@@ -1,22 +1,16 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary representation
- * of a number.
- * @n: unsigned long int.
- *
- * Return: no return.
+ * get_endianness - check endianness
+ * Return: 0 if big endian, or 1 if little endian
  */
-void print_binary(unsigned long int n)
+int get_endianness(void)
 {
-	if (n >> 0)
-	{
-		if (n >> 1)
-			print_binary(n >> 1);
-		_putchar((n & 1) + '0');
-	}
+	int num;
+
+	num = 1;
+	if (*(char *)&num == 1)
+		return (1);
 	else
-	{
-		_putchar('0');
-	}
+		return (0);
 }
